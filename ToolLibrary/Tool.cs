@@ -1,3 +1,5 @@
+
+
 namespace ToolLibrary
 {
     public class Tool: IInit, IComparable<Tool>, ICloneable
@@ -6,6 +8,7 @@ namespace ToolLibrary
         protected int nameLength;
         public IdNumber ID { get; set; }
 
+        public ShowData showData = new ShowData();
         protected Random rand = new Random();
 
         //Свойства
@@ -56,11 +59,7 @@ namespace ToolLibrary
         //IInit и IRandomInit
         public virtual void IInit()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("Введите название инструмента: ");
-
-            Console.ForegroundColor = ConsoleColor.White;
-            Name = Console.ReadLine();
+            Name = showData.GetString("Введите название инструмента: ");
         }
 
         public virtual void IRandomInit()

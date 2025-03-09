@@ -75,45 +75,11 @@ namespace ToolLibrary
         //IInit и IRandomInit
         public override void IInit()
         {
-            int time;
-            string data;
-            bool isConverted;
 
             base.IInit();
 
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("Введите тип питания инструмента: ");
-
-            Console.ForegroundColor = ConsoleColor.White;
-            Supply = Console.ReadLine();
-
-            do
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("Введите время работы аккумулятора: ");
-
-                Console.ForegroundColor = ConsoleColor.White;
-                data = Console.ReadLine();
-
-                isConverted = int.TryParse(data, out time);
-
-                if (!isConverted)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Ошибка ввода");
-                    Console.WriteLine();
-                }
-
-                if ((isConverted) && (time < 0))
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Время работы аккумулятора должно быть не меньше 0");
-                    Console.WriteLine();
-                }
-
-            } while ((!isConverted) || (time < 0));
-
-            SupplyTime = time;
+            Supply = showData.GetString("Введите тип питания инструмента: ");
+            SupplyTime = showData.GetTime();
 
         }
 

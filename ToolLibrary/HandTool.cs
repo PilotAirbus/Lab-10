@@ -50,12 +50,7 @@ namespace ToolLibrary
         public override void IInit()
         {
             base.IInit();
-
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("Введите материал инструмента: ");
-
-            Console.ForegroundColor = ConsoleColor.White;
-            Material = Console.ReadLine();
+            Material = showData.GetString("Введите материал инструмента: ");
         }
 
         public override void IRandomInit()
@@ -88,3 +83,4 @@ namespace ToolLibrary
         }
     }
 }
+

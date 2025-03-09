@@ -77,11 +77,7 @@ namespace ToolLibrary
 
             base.IInit();
 
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("Введите единицы измерения инструмента: ");
-
-            Console.ForegroundColor = ConsoleColor.White;
-            Units = Console.ReadLine();
+            Units = showData.GetString("Введите единицы измерения инструмента: ");
 
             do
             {
